@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href= "css/style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  
+
+  <!-- modal 3 -->
+  <div class="box">
+    <a href="#m3-o" class="link-1" id="m3-c">Modal 3</a>
+    <p class="box__info">With Background Full Opacity</p>
+  
+    <div class="modal-container" id="m3-o" style="--m-background: var(--global-background);">
+      <div class="modal" style="--m-shadow: 0 0 10rem 0">
+        <h1 class="modal__title">Modal 3 Title</h1>
+        <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
+        <button class="modal__btn">Button &rarr;</button>
+        <button class="modal__btn">Button &rarr;</button>
+        <a href="#m3-c" class="link-2"></a>
+      </div>
+    </div>
+  </div>
+  <!-- /modal 3 -->
+  
+  
+ 
+</body>
+</html>
+
+
+
+
+
+------------------------------------- ADD EX-FORM
+
+
+
+
+
+
+
+<form class="form-inline" action="/form/add" method="POST">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01">Departamento</label>
+      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Departamento" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Cargo</label>
+      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServerUsername">Encargado del equipo</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+        </div>
+        <input type="text" class="form-control is-invalid" name="" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+      <label for="validationServer04">Asunto</label>
+      <input type="text" class="form-control is-invalid" name="title" placeholder="Asunto" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+   <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03">Descripcion</label>
+      <textarea type="text" class="form-control is-invalid" name="descripcion" placeholder="Descripcion" required></textarea>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+      <label for="validationServer05">Zip</label>
+      <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Zip" required>
+      <div class="invalid-feedback">
+        Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
+
+
+-------------------------------------------------------
+
+
+
+
+
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Solicitud de Asistencia</h3>
+            <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for you.</p>
+            <div class="card">
+                <h5 class="text-center mb-4">Powering world-class companies</h5>
+                <form class="form-card" onsubmit="event.preventDefault()">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Dependecia<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="fname" name="fname" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre Completo<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="lname" name="lname" placeholder="" > </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Cargo del solicitante<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="email" name="email" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="mob" name="mob" placeholder="" > </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Asunto<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="job" name="job" placeholder="" > </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Descripcion de Asistencia<span class="text-danger"> 
+
+                        </span></label> <input type="text" id="ans" name="ans" placeholder=""> </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Enviar Solicitud</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+ <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+     
+        <a href="/"><img class="img-ico" src="/img/logo.png"></a>
+
+      
+      
+      <ul>
+        <li><a class="active" href="/">Home</a></li>
+       
+        {{#if user}}
+              <li class="dropw" >
+                 <a class="dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Formularios</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                          <a class="dropdown-item" href="/form/add">Nueva Solicitud</a>
+                          <a class="dropdown-item" href="/form/list">Lista de Solicitud</a>
+                          <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/users/logout">Salir</a>
+                      </div>
+              </li>
+  
+  
+          {{else}}
+  
+            <li>
+             <a class="nav-link" href="/users/signup "><button  class="btn btn-outline-signup"  type="submit">Sign up</button></a>
+            </li>
+            
+            <li>
+             <a class="nav-link" href="/users/signin" ><button class="btn btn-outline-signin "   type="submit">Sign in</button></a>
+            </li>
+          
+          {{/if}}
+      </ul>
+    </nav>
+

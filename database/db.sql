@@ -1,0 +1,31 @@
+CREATE DATABASE db_sst;
+
+USE db_sst;
+
+CREATE TABLE users(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(16) NOT NULL,
+    password VARCHAR(60) NOT NULL,
+    fullname VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL
+
+
+);
+
+
+CREATE TABLE forms(
+    id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title VARCHAR(150) NOT NULL,
+    description VARCHAR(250) NOT NULL,
+    others VARCHAR (250)NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    user_id INT(11),
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+
+
+);
+
+ 
+
+DESCRIBE users;
+
