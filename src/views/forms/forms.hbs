@@ -10,125 +10,42 @@
                     <div class="list list-row card-list" id="sortable" data-sortable-id="0" aria-dropeffect="move">
                         <h5 class="text-center mb-4">Lista de Solicitudes</h5>
                         <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
+                            {{#each forms}}
                             <div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">P</span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Patrick Linod</a>
-                                <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">{{user_id.fullname}}</a>
+                                <div class="item-except text-muted text-sm h-1x">{{title}}</div>
                             </div>
                             <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">3 weeks ago</div>
+                                <div class="item-date text-muted text-sm d-none d-md-block">{{ created_at }}</div>
                             </div>
                             <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                                             <circle cx="12" cy="12" r="1"></circle>
                                             <circle cx="12" cy="5" r="1"></circle>
                                             <circle cx="12" cy="19" r="1"></circle>
                                         </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu"> 
+
+
+
+
+                                        <a class="dropdown-item download" data-abc="true">Download </a>
+                                        <a class="dropdown-item edit" data-abc="true">Edit</a>
+                                        <div class="dropdown-divider"></div> 
+                                        <a class="dropdown-item trash" data-abc="true">Delete item</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="list-item" data-id="9" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-info"><img src="https://img.icons8.com/bubbles/24/000000/user.png" alt="."></span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Steven Hmpire</a>
-                                <div class="item-except text-muted text-sm h-1x">Build a progressive web app using jQuery</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">2 days ago</div>
-                            </div>
-                            <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                    </div>
-                                </div>
+                        {{else}}
+                        <div class="col-md-4 mx-auto">
+                            <div class="card card-body text-center bg-dark text-light">
+                                <p>There are not form saved yet.</p>
+                                <a href="/form/add" class="text-success">Create One!</a>
                             </div>
                         </div>
-                        <div class="list-item" data-id="17" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-warning">A</span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Alan musk</a>
-                                <div class="item-except text-muted text-sm h-1x">it be advisable for me to think about business content?</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">13/12 18</div>
-                            </div>
-                            <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-item" data-id="8" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-success"><img src="https://img.icons8.com/doodle/24/000000/user-male.png" alt="."></span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Lawrence Telon</a>
-                                <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">02/11 18</div>
-                            </div>
-                            <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-item" data-id="10" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-danger"><img src="https://img.icons8.com/color/16/000000/administrator-male.png" alt="."></span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Stuart Clark</a>
-                                <div class="item-except text-muted text-sm h-1x">For what reason would, i think about business content?</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">1 day ago</div>
-                            </div>
-                            <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-item" data-id="3" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false">
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary"><img src="https://img.icons8.com/bubbles/16/000000/administrator-male.png" alt="."></span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">Jordan Stephens</a>
-                                <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">1 hour ago</div>
-                            </div>
-                            <div>
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu"> <a class="dropdown-item" href="#" data-abc="true">See detail </a><a class="dropdown-item download" data-abc="true">Download </a><a class="dropdown-item edit" data-abc="true">Edit</a>
-                                        <div class="dropdown-divider"></div> <a class="dropdown-item trash" data-abc="true">Delete item</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>

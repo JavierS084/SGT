@@ -11,31 +11,14 @@ router.get('/add', (req, res) => {
 
 
 router.post('/add', async (req, res) => {
-    const { title, description } = req.body;
-    const errors = [];
-    if(!title) {
-        errors.push({text: 'Please Write a Title'});
-    }
-
-    if(!description) {
-        errors.push({text: 'Please Write a Description'});
-
-    }
-
-    if(errors.length > 0) {
-        res.render('forms/add', {
-            errors,
-            title,
-            description
-
-        });
-    } else {
-        const newForm = new Form({ title, description});
-        await newForm.save();
-        req.flash('success_msg', 'Note Added Successfully');
-        res.redirect('/list');
-    }
-   
+    console.log(req.body);
+    const { title, description, dependencia, cargo, others } = req.body;
+  
+    const newForm = { title, description, dependencia, cargo, others};
+    await pool.query('INSERT INTO forms set ?', [newForm]);
+    req.flash('success_msg', 'Solicitud Added Successfully');
+    res.redirect('/form/list');
+    
 });
 //list
 /*
@@ -46,9 +29,10 @@ router.get('/forms/list/solicitudes', authenticated, async (req, res) => {
 });
 */
 
-router.get ('/list', (req, res) => {
-   
-    res.render('forms/forms');
+router.get('/list', async(req, res) => {
+    const forms = await pool.query('SELECT * FROM forms');
+    console.log(forms);
+    res.render('forms/forms',{forms: forms});
   });
   
 

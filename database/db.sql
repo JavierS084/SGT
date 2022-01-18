@@ -25,7 +25,7 @@ CREATE TABLE forms(
 
 );
 
- 
-
+ ALTER TABLE forms ADD dependencia VARCHAR(30) NOT NULL;
+ALTER TABLE forms ADD cargo VARCHAR(30) NOT NULL;
 DESCRIBE users;
 

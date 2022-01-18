@@ -1,17 +1,17 @@
 function validate(val) {
-    v1 = document.getElementById("fname");
-    v2 = document.getElementById("lname");
-    v3 = document.getElementById("email");
-    v4 = document.getElementById("mob");
-    v5 = document.getElementById("job");
-    v6 = document.getElementById("ans");
+    v1 = document.getElementById("dep");
+    v2 = document.getElementById("cargo");
+    v3 = document.getElementById("tel");
+    v4 = document.getElementById("asunto");
+    v5 = document.getElementById("des");
+    
     
     flag1 = true;
     flag2 = true;
     flag3 = true;
     flag4 = true;
     flag5 = true;
-    flag6 = true;
+
     
     if(val>=1 || val==0) {
     if(v1.value == "") {
@@ -64,18 +64,10 @@ function validate(val) {
     flag5 = true;
     }
     }
-    if(val>=6 || val==0) {
-    if(v6.value == "") {
-    v6.style.borderColor = "red";
-    flag6 = false;
-    }
-    else {
-    v6.style.borderColor = "green";
-    flag6 = true;
-    }
-    }
+   
     
-    flag = flag1 && flag2 && flag3 && flag4 && flag5 && flag6;
+    
+    flag = flag1 && flag2 && flag3 && flag4 && flag5;
     
     return flag;
     }
