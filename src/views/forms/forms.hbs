@@ -1,39 +1,65 @@
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
 <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-md-12">
                 <div class="container-fluid d-flex justify-content-center">
                     <div class="list list-row card-list" id="sortable" data-sortable-id="0" aria-dropeffect="move">
                         <h5 class="text-center mb-4">Lista de Solicitudes</h5>
-                        <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" style="">
                             {{#each forms}}
+                            
+                        <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" >
                             <div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">P</span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">{{user_id.fullname}}</a>
+                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">{{user_id}}</a>
                                 <div class="item-except text-muted text-sm h-1x">{{title}}</div>
                             </div>
                             <div class="no-wrap">
                                 <div class="item-date text-muted text-sm d-none d-md-block">{{ created_at }}</div>
                             </div>
                             <div>
+                                
                                 <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true">
                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                                             <circle cx="12" cy="12" r="1"></circle>
                                             <circle cx="12" cy="5" r="1"></circle>
                                             <circle cx="12" cy="19" r="1"></circle>
                                         </svg> </a>
-                                    <div class="dropdown-menu dropdown-menu-right" role="menu"> 
-
-
-
-
+                                        
+                                    <div class="dropdown-menu dropdown-menu-right" > 
+                                        <a class="dropdown-item " data-abc="true" data-toggle="modal" data-target="#exampleModal">Mas detalles </a>                           
+                                               
                                         <a class="dropdown-item download" data-abc="true">Download </a>
                                         <a class="dropdown-item edit" data-abc="true">Edit</a>
                                         <div class="dropdown-divider"></div> 
                                         <a class="dropdown-item trash" data-abc="true">Delete item</a>
+                                    </div>
+                                </div>
+
+                     <!-- Modal -->
+
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Asunto: {{title}}</h5>
+                                            
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="card">
+
+                                                    <div class="card-body">
+                                                        <p>Dependencia: {{dependencia}}</p>
+                                                        
+                                                       <p><DE: {{user_id}}</p> 
+                                                    <p> Descripcion: {{description}}</p>  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
