@@ -28,27 +28,29 @@ router.get('/list', async(req, res) => {
     res.render('forms/forms',{forms: forms});
   });
   
-  
-/*
-//edit
-router.get('/edit/:id',authenticated, async (req, res) => {
-    const form = await Form.findById(req.params.id).lean();
-    res.render('forms/forms', {form})
-});
-//update
-router.put('/notes/edit-note/:id',authenticated, async (req, res) => {
-    const {title, description }= req.body;
-    await Form.findByIdAndUpdate(req.params.id, { title, description});
-    req.flash('success_msg', 'Note Updated Successfully');
-    res.redirect('/notes');
+router.get('/delete/:id', async (req, res) => {
+    const  { id } = req.params;
+    await pool.query('DELETE FROM forms WHERE ID = ?', [id]);
+    req.flash('success_msg', 'Form Delete Successfully');
+    res.redirect('/form/list');
 });
 
-//delete
-router.delete('/notes/delete/:id',authenticated, async (req, res) => {
-  await Form.findByIdAndDelete(req.params.id);
-  req.flash('success_msg', 'Note Delete Successfully');
-   res.redirect('/notes');
+
+router.get('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    await pool.query('UPDATE FROM forms WHERE ID = ?', [id]);
+    res.render('form/forms')
 });
-*/
+
+//update
+router.put('/edit/:id', async (req, res) => {
+   // const {title, description, dependencia, cargo, others}= req.body;
+    const { id } = req.params;
+    await pool.query('UPDATE FROM forms WHERE ID = ?', [id]);
+    req.flash('success_msg', 'Form Update Successfully')
+    res.redirect('/form/list');
+});
+
+
 
 module.exports = router; 
