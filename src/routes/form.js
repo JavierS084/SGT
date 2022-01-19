@@ -13,21 +13,14 @@ router.get('/add', (req, res) => {
 router.post('/add', async (req, res) => {
     console.log(req.body);
     const { title, description, dependencia, cargo, others } = req.body;
-  
+
     const newForm = { title, description, dependencia, cargo, others};
     await pool.query('INSERT INTO forms set ?', [newForm]);
     req.flash('success_msg', 'Solicitud Added Successfully');
     res.redirect('/form/list');
     
 });
-//list
-/*
-router.get('/forms/list/solicitudes', authenticated, async (req, res) => {
-    //const forms = await Form.find({user: req.user.id}).sort({date: 'desc'}).lean();
-    res.render('forms/forms');
-   
-});
-*/
+
 
 router.get('/list', async(req, res) => {
     const forms = await pool.query('SELECT * FROM forms');
@@ -35,14 +28,12 @@ router.get('/list', async(req, res) => {
     res.render('forms/forms',{forms: forms});
   });
   
-
-    
-    
+  
 /*
 //edit
-router.get('/forms/edit/:id',authenticated, async (req, res) => {
+router.get('/edit/:id',authenticated, async (req, res) => {
     const form = await Form.findById(req.params.id).lean();
-    res.render('notes/edit-note', {form})
+    res.render('forms/forms', {form})
 });
 //update
 router.put('/notes/edit-note/:id',authenticated, async (req, res) => {

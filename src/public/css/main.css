@@ -581,6 +581,9 @@ list-item {
 background: white
 }
 
-
+.modal-dialog {
+  max-width: 550px;
+  margin: 1.75rem auto;
+}
 
 
