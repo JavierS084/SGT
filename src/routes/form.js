@@ -24,7 +24,6 @@ router.post('/add', async (req, res) => {
 
 router.get('/list', async(req, res) => {
     const forms = await pool.query('SELECT * FROM forms');
-    console.log(forms);
     res.render('forms/forms',{forms: forms});
   });
   
@@ -38,17 +37,24 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
     const { id } = req.params;
-    await pool.query('UPDATE FROM forms WHERE ID = ?', [id]);
-    res.render('form/forms')
+   const forms =  await pool.query('SELECT * FROM forms WHERE id = ?', [id]);
+    res.render('forms/forms', {form: forms[0]})
 });
 
 //update
-router.put('/edit/:id', async (req, res) => {
-   // const {title, description, dependencia, cargo, others}= req.body;
+router.post('/edit/:id', async (req, res) => {
     const { id } = req.params;
-    await pool.query('UPDATE FROM forms WHERE ID = ?', [id]);
+    const {title, description, dependencia, cargo, others} = req.body;
+    const newForm = {
+        title,
+        description,
+        dependencia,
+        cargo,
+        others
+    };
+   await pool.query('UPDATE forms set ? WHERE id = ?', [newForm, id])
     req.flash('success_msg', 'Form Update Successfully')
-    res.redirect('/form/list');
+    res.redirect('/form/list');  
 });
 
 

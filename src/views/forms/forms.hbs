@@ -35,7 +35,7 @@
                                 </div>
 
                      <!-- Modal -->
-
+                        <!--Edit -->
                                 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -47,26 +47,26 @@
                                                 <div class="card">
 
                                                     <div class="card-body">
-                                                      <form action="/form/edit/{{id}}?_method=PUT" method="POST">
+                                                      <form action="/form/edit/{{form.id}}" method="POST">
 
                                                             <div class="form-group">
                                                                   Dependencia:
-                                                                <input name="dependencia" class="form-control" value="{{dependencia}}"></input>
+                                                                <input name="dependencia" class="form-control" value="{{form.dependencia}}"></input>
                                                             </div>
 
                                                             <div class="form-group">
                                                                   Cargo:
-                                                                <input name="cargo" class="form-control" value="{{cargo}}"></input>
+                                                                <input name="cargo" class="form-control" value="{{form.cargo}}"></input>
                                                             </div>
 
                                                             <div class="form-group">
                                                                 Asunto:
-                                                                <input type="text" name="title" class="form-control" placeholder="Title" value="{{title}}" >
+                                                                <input type="text" name="title" class="form-control" placeholder="Title" value="{{form.title}}" >
                                                             </div>
                                                             
                                                             <div class="form-group">
                                                                 Descripcion:
-                                                                <textarea name="description" class="form-control">{{description}}</textarea>
+                                                                <textarea name="description" class="form-control">{{form.description}}</textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="d-grid gap-2">
@@ -84,6 +84,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!--Detail-->
+
                                 <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detailLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -114,6 +117,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            <!-- Delete -->
 
                                 <div id="delete" class="modal fade">
                                     <div class="modal-dialog modal-confirm">
