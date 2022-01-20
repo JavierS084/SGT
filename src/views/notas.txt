@@ -153,3 +153,6 @@
     </div>
 </div>
 
+-----------------------------------------------------------------
+
+ <a class="dropdown-item edit" data-abc="true" href="/form/edit/{{id}}">Editar</a>

@@ -12,8 +12,10 @@ router.get('/add', (req, res) => {
 
 router.post('/add', async (req, res) => {
     console.log(req.body);
-    const { title, description, dependencia, cargo, others } = req.body;
-
+    const { title, description, dependencia, cargo, others} = req.body;
+    //const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+    //const user = rows[0];
+    //user_id = user.id;
     const newForm = { title, description, dependencia, cargo, others};
     await pool.query('INSERT INTO forms set ?', [newForm]);
     req.flash('success_msg', 'Solicitud Added Successfully');
@@ -24,7 +26,7 @@ router.post('/add', async (req, res) => {
 
 router.get('/list', async(req, res) => {
     const forms = await pool.query('SELECT * FROM forms');
-    res.render('forms/forms',{forms: forms});
+    res.render('forms/forms',{form: forms});
   });
   
 router.get('/delete/:id', async (req, res) => {
@@ -37,8 +39,9 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
     const { id } = req.params;
-   const forms =  await pool.query('SELECT * FROM forms WHERE id = ?', [id]);
-    res.render('forms/forms', {form: forms[0]})
+    const forms =  await pool.query('SELECT * FROM forms WHERE ID = ?', [id]);
+    console.log(forms);
+    res.render('forms/edit', {form: forms[0]})
 });
 
 //update
@@ -52,7 +55,7 @@ router.post('/edit/:id', async (req, res) => {
         cargo,
         others
     };
-   await pool.query('UPDATE forms set ? WHERE id = ?', [newForm, id])
+   await pool.query('UPDATE forms set ? WHERE ID = ?', [newForm, id])
     req.flash('success_msg', 'Form Update Successfully')
     res.redirect('/form/list');  
 });

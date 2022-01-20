@@ -30,6 +30,30 @@ footer{
 
 }
 
+.btn-cancel{
+  background-color: #aaa;
+  color: white;
+ 
+  border-radius: .25rem;
+  padding: .45rem 8rem .45rem 8rem;
+  border: 1px solid rgba(0,0,0,.15);
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+}
+
+.btn-cancel:hover{
+  background-color: #aaa;
+  color: white;
+  border-radius: .25rem;
+  padding: .45rem 8rem .45rem 8rem;
+  border: 1px solid rgba(0,0,0,.15);
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+}
 
 .btn-outline-signin:hover {
   color: #000;
@@ -327,7 +351,7 @@ footer{
 .btn-secondary{
  background-color: #0282E6;
  color: #fff;
- padding: .5rem 1rem .5rem 1rem ;
+ padding: .45rem 1rem .45rem 1rem ;
  border-radius: 5px;
  border: 1px solid #ccc;
  -webkit-border-radius: 5px;
