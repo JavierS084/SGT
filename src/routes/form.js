@@ -13,9 +13,6 @@ router.get('/add', (req, res) => {
 router.post('/add', async (req, res) => {
     console.log(req.body);
     const { title, description, dependencia, cargo, others} = req.body;
-    //const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
-    //const user = rows[0];
-    //user_id = user.id;
     const newForm = { title, description, dependencia, cargo, others};
     await pool.query('INSERT INTO forms set ?', [newForm]);
     req.flash('success_msg', 'Solicitud Added Successfully');
@@ -27,8 +24,9 @@ router.post('/add', async (req, res) => {
 router.get('/list', async(req, res) => {
     const forms = await pool.query('SELECT * FROM forms');
     res.render('forms/forms',{form: forms});
-  });
-  
+});
+
+
 router.get('/delete/:id', async (req, res) => {
     const  { id } = req.params;
     await pool.query('DELETE FROM forms WHERE ID = ?', [id]);

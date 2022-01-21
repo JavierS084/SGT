@@ -2,105 +2,83 @@
 <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row">
+            
             <div class="col-md-12">
-                <div class="container-fluid d-flex justify-content-center">
-                    <div class="list list-row card-list" id="sortable" data-sortable-id="0" aria-dropeffect="move">
-                        <h5 class="text-center mb-4">Lista de Solicitudes</h5>
-                            {{#each form}}
-                            
-                        <div class="list-item" data-id="13" data-item-sortable-id="0" draggable="true" role="option" aria-grabbed="false" >
-                            <div><a href="#" data-abc="true"><span class="w-40 avatar gd-primary">P</span></a></div>
-                            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true">{{users.fullname}}</a>
-                                <div class="item-except text-muted text-sm h-1x">{{title}}</div>
-                            </div>
-                            <div class="no-wrap">
-                                <div class="item-date text-muted text-sm d-none d-md-block">{{ created_at }}</div>
-                            </div>
-                            <div>
+                <div class="container-fluid px-1 py-5 mx-auto">
+                    <div class="ow d-flex justify-content-center">
+                        <div class="card">
+                            <h5 class="text-center mb-4">Lista de Solicitudes</h5>      
+                            <table class="table table-borderless table-responsive">
                                 
-                                <div class="item-action dropdown"> <a href="#" data-toggle="dropdown" class="text-muted" data-abc="true">
-                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="12" cy="5" r="1"></circle>
-                                            <circle cx="12" cy="19" r="1"></circle>
-                                        </svg> </a>
-                                        
-                                    <div class="dropdown-menu dropdown-menu-right" > 
-                                        <a class="dropdown-item " data-abc="true" data-toggle="modal" data-target="#detail">Mas detalles </a>                                      
-                                        <a class="dropdown-item download" data-abc="true" href="forms.hbs" download>Download </a>
-                                        <a class="dropdown-item edit" data-abc="true"  href="/form/edit/{{id}}">Editar</a>
-                                        <div class="dropdown-divider"></div> 
-                                        <a class="dropdown-item trash" data-abc="true"  data-toggle="modal" data-target="#delete">Eliminar</a>
-                                    </div>
-                                </div>
+                                <thead class="text-center col-md-8">
+                                    <tr class="border-bottom">
+                                        <th> <span class="ml-2">Dependencia</span> </th>
+                                        <th> <span class="ml-2">Cargo</span> </th>
+                                        <th> <span class="ml-2">Asunto</span> </th>
+                                        <th> <span class="ml-2">Descripcion</span> </th>
+                                        <th> <span class="ml-4">Action</span> </th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody class="text-left col-md-10" >
+                                    {{#each form}}
 
-                     <!-- Modal -->
-                       
-                                <!--Detail-->
+                                        <tr >
+                                            <td >
+                                                
+                                                    <span >{{dependencia}}</span> <br><small>{{created_at }}</small> 
+                                                
+                                            </td>
+                                            <td>
+                                                
+                                                 <span>{{cargo}}</span> 
+                                            </td>
+                                            <td>
+                                               <span >{{title}}</span> 
+                                            </td>
+                                            <td>
+                                             <span >{{description}}</span>
+                                            </td>
+                                            <td>
+                                                <div > 
+                                                    <a  href="/form/edit/{{id}}" class="fa fa-edit text-success"></a> 
+                                                    <a class="fa fa-trash text-danger" data-toggle="modal" data-target="#delete"></a>
+                                                    <a class="fa fa-download text-secondary" href="forms.hbs" download></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Modal delete -->
+                                        <div id="delete" class="modal fade">
+                                            <div class="modal-dialog modal-confirm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header flex-column">						
+                                                        <h4 class="modal-title w-100">Estas Seguro?</h4>	
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Realmente deseas eliminar? Este proceso no se puede deshacer.</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-                                <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detailLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="detailLabel">Dependencia: {{dependencia}}</h5>
-                                            
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="card">
-
-                                                    <div class="card-body">
-                                                        <div class="form-control">
-                                                            
-                                                            <p></p>
-                                                       
-                                                            <p>De: {{user_id}}</p> 
-                                                            <p>Asunto: {{title}}</p>
-                                                            <p> Descripcion: {{description}}</p>  
-
-                                                        </div>
+                                                        <a href="/form/delete/{{id}}" class="btn btn-danger">Eliminar</a>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            
+                                        </div>
+                                    
+                                    {{else}}
+                                        <div class="col-md-4 mx-auto">
+                                            <div class="card card-body text-center bg-dark text-light">
+                                                <p>There are not form saved yet.</p>
+                                                <a href="/form/add" class="text-success">Crear una nueva Solicitud</a>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-
-                            <!-- Delete -->
-
-                                <div id="delete" class="modal fade">
-                                    <div class="modal-dialog modal-confirm">
-                                        <div class="modal-content">
-                                            <div class="modal-header flex-column">						
-                                                <h4 class="modal-title w-100">Estas Seguro?</h4>	
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Realmente deseas eliminar? Este proceso no se puede deshacer.</p>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-
-                                                <a href="/form/delete/{{id}}" class="btn btn-danger">Eliminar</a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
+                                    {{/each}}
+                                </tbody>
+                            </table>
                         </div>
-                        {{else}}
-                        <div class="col-md-4 mx-auto">
-                            <div class="card card-body text-center bg-dark text-light">
-                                <p>There are not form saved yet.</p>
-                                <a href="/form/add" class="text-success">Create One!</a>
-                            </div>
-                        </div>
-                        {{/each}}
+                            
                     </div>
                 </div>
             </div>

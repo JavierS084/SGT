@@ -19,6 +19,29 @@ footer{
   margin-top: 1rem;
 
 }
+tbody{
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+tbody,td{
+  background-color: rgb(247, 244, 244);
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.cardx {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fff
+}
+
 .btn-outline-signin{
   border-color: green;
   color: green;
