@@ -45,9 +45,9 @@ table{
 }
 
 .las {
+  position: relative;
+  left: 1rem;
   padding: .3rem;
-  width: 1.5rem;
-  height: 1rem;
   font-size: 1.5rem;
 }
 

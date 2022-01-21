@@ -32,5 +32,5 @@ ALTER TABLE forms MODIFY COLUMN others VARCHAR(250);
 ALTER TABLE forms MODIFY COLUMN cargo VARCHAR(250);
 DESCRIBE users;
 
-DATEMySQL
-UPDATE users SET superuser=1;
+
+UPDATE users SET superuser=0 WHERE username  = 'juan123';
