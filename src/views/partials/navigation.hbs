@@ -27,13 +27,17 @@
           {{else}}
   
             <li>
-             <a class="nav-link" href="/users/signup "><button  class="btn btn-outline-signup"  type="submit">Sign up</button></a>
-            </li>
-            
-            <li>
              <a class="nav-link" href="/users/signin" ><button class="btn btn-outline-signin "   type="submit">Sign in</button></a>
             </li>
           
+          {{/if}}
+
+        {{#if user.superuser}}
+            <li>
+             <a class="nav-link" href="/users/signup "><button  class="btn btn-outline-signup"  type="submit">Registrar</button></a>
+            </li>
+          {{else}}
+            no ere
           {{/if}}
       </ul>
     </nav>
