@@ -1,41 +1,47 @@
 
+
+
 <div class="row">
     <div class="container-fluid mx-auto">
-        <div class="col-md-14 justify-content-center">
+        <div class="col-md-12 justify-content-center">
             <div class="card">
-                <h5 class="text-center mb-4"> <span>Lista de Solicitudes</h5>      
+                <h5 class="text-center mb-4"> <span>Lista de Usuarios</h5>      
                 <table class="table table-borderles">
                     
-                    <thead class="text-center col-md-10">
+                    <thead class="text-center col-md-8">
                         <tr class="border-bottom">
-                            <th> <span class="ml-2">Dependencia</span> </th>
-                            <th> <span class="ml-2">Cargo</span> </th>
-                            <th> <span class="ml-2">Asunto</span> </th>
-                            <th> <span class="ml-2">Descripcion</span> </th>
-                            <th> <span class="ml-4">Action</span> </th>
+                            <th> <span class="ml-2">ID</span> </th>
+                            <th> <span class="ml-2">Full Name</span> </th>
+                            <th> <span class="ml-2">Username</span> </th>
+                            <th> <span class="ml-2">Email</span> </th>
+                            <th> <span class="ml-2">SuperUser</span> </th>
+                            <th> <span class="ml-2">Action</span> </th>
                         </tr>
                     </thead>
                     
-                    <tbody class="text-left col-md-10" >
-                        {{#each form}}
+                    <tbody class="text-left col-md-8" >
+                        {{#each users}}
                             <tr>
                                 <td >
-                                    <span >{{dependencia}}</span> <br><small>{{created_at }}</small> 
+                                    <span >{{id}}</span> 
                                 </td>
                                 <td>
-                                        <span>{{cargo}}</span> 
+                                        <span>{{fullname}}</span> 
                                 </td>
                                 <td>
-                                    <span >{{title}}</span> 
+                                    <span >{{username}}</span> 
                                 </td>
-                                <td class="col-sm-3">
-                                    {{description}}
+                                <td >
+                                    {{email}}
+                                </td>
+                                 <td >
+                                    {{superuser}}
                                 </td>
                                 <td class="col-sm-1">
                                     <div class="justify-content-center" > 
-                                        <a  href="/form/edit/{{id}}" class="las la-edit text-success"></a> 
+                                        <a  href="/users/edit/{{id}}" class="las la-edit text-success"></a> 
                                         <a class="las la-trash text-danger" data-toggle="modal" data-target="#delete"></a>
-                                        <a class="las la-download text-secondary las-5x" href="forms.hbs" download></a>
+                                       
                                     </div>
                                 </td>
                             </tr>
@@ -47,25 +53,19 @@
                                             <h4 class="modal-title w-100">Estas Seguro?</h4>	
                                         </div>
                                         <div class="modal-body">
-                                            <p>Realmente deseas eliminar? Este proceso no se puede deshacer.</p>
+                                            <p>Realmente deseas eliminar este usuario? Este proceso no se puede deshacer.</p>
                                         </div>
                                         <div class="modal-footer justify-content-center">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-                                            <a href="/form/delete/{{id}}" class="btn btn-danger">Eliminar</a>
+                                            <a href="/users/delete/{{id}}" class="btn btn-danger">Eliminar</a>
                                             
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         
-                        {{else}}
-                            <div class="col-md-4 mx-auto">
-                                <div class="card card-body text-center bg-dark text-light">
-                                    <p>There are not form saved yet.</p>
-                                    <a href="/form/add" class="text-success">Crear una nueva Solicitud</a>
-                                </div>
-                            </div>
+                     
                         {{/each}}
                     </tbody>
                 </table>
@@ -75,3 +75,4 @@
     </div>
 
 </div>
+
