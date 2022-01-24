@@ -52,7 +52,7 @@ app.use(flash());
 //Global variables
 app.use((req, res, next) => { //toma la informacion del usuario, reponde el servidor y continua con el codigo
    app.locals.success = req.flash('success');
-   app.locals.message = req.flash('message');
+   app.locals.messages = req.flash('messages');
    app.locals.error = req.flash('error');
    app.locals.user = req.user || null;
     next();

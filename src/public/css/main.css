@@ -36,6 +36,10 @@ table{
   border-color: #badbcc;
   text-align: center;
 }
+.btn-block {
+  display: block;
+  width: 100%;
+}
 .img-ico{
   margin-left: 2rem;
   width: 4.2rem;
@@ -65,6 +69,7 @@ table{
   width: 4.5rem;
   padding: .1rem;
   height: 1.9rem;
+
  
 
 }
@@ -72,7 +77,7 @@ table{
 .btn-cancel{
   background-color: #aaa;
   color: white;
- 
+  margin-top: .34rem;
   border-radius: .25rem;
   padding: .45rem 8rem .45rem 8rem;
   border: 1px solid rgba(0,0,0,.15);

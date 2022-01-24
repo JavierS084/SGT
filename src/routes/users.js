@@ -54,8 +54,8 @@ router.post('/users/edit/:id', async (req, res) => {
         password
     };
    await pool.query('UPDATE users set ? WHERE ID = ?', [newUser, id])
-    
-    res.redirect('/users/list');  
+   req.flash('success_msg', 'Form Update Successfully')
+   res.redirect('/users/list');  
 });
 ////////////////////////
 
