@@ -15,7 +15,7 @@ router.post('/add', async (req, res) => {
     const { title, description, dependencia, cargo, others} = req.body;
     const newForm = { title, description, dependencia, cargo, others};
     await pool.query('INSERT INTO forms set ?', [newForm]);
-    req.flash('success_msg', 'Solicitud Added Successfully');
+    req.flash('success', 'Solicitud Added Successfully');
     res.redirect('/form/list');
     
 });
@@ -30,7 +30,7 @@ router.get('/list', async(req, res) => {
 router.get('/delete/:id', async (req, res) => {
     const  { id } = req.params;
     await pool.query('DELETE FROM forms WHERE ID = ?', [id]);
-    req.flash('success_msg', 'Form Delete Successfully');
+    req.flash('success', 'Form Delete Successfully');
     res.redirect('/form/list');
 });
 
@@ -54,7 +54,7 @@ router.post('/edit/:id', async (req, res) => {
         others
     };
    await pool.query('UPDATE forms set ? WHERE ID = ?', [newForm, id])
-    req.flash('success_msg', 'Form Update Successfully')
+    req.flash('success', 'Form Update Successfully')
     res.redirect('/form/list');  
 });
 

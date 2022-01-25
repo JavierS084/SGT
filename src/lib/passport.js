@@ -40,9 +40,9 @@ passport.use('local.signin', new localStrategy({
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
         if (validPassword){
-            done(null, user, req.flash('success','Bienvenido ' + user.username));
+            done(null, user, req.flash('success','Bienvenido ' + user.fullname));
         }else{
-            done (null, false, req.flash('message','Contrase&ntilde;a  incorrecta'));
+            done (null, false, req.flash('error','Contraseña incorrecta'));
         }
         
     }else{

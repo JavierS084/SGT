@@ -30,7 +30,7 @@ router.get('/users/list', async (req, res) => {
 router.get('/users/delete/:id', async (req, res) => {
     const  { id } = req.params;
     await pool.query('DELETE FROM users WHERE ID = ?', [id]);
-    req.flash('success_msg', 'Form Delete Successfully');
+    req.flash('success', 'User Delete Successfully');
     res.redirect('/users/list');
 });
 
@@ -54,7 +54,7 @@ router.post('/users/edit/:id', async (req, res) => {
         password
     };
    await pool.query('UPDATE users set ? WHERE ID = ?', [newUser, id])
-   req.flash('success_msg', 'Form Update Successfully')
+   req.flash('success', 'Form Update Successfully')
    res.redirect('/users/list');  
 });
 ////////////////////////
