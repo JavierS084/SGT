@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport')
 const pool = require('../database');
-
+const {isLoggedIn, isNOTLoggedIn} = require('../lib/auth');
 
 
 router.get('/users/signup', (req, res) => {
@@ -15,13 +15,13 @@ router.post('/users/signup', passport.authenticate('local.signup', {
    failureFlash: true
 }));
 
-router.get('/users/signin', (req, res) => {
+router.get('/users/signin', isNOTLoggedIn, (req, res) => {
     res.render('users/signin');
 });
 
 
 ////////////////////////////////////lista de Usuarios
-router.get('/users/list', async (req, res) => {
+router.get('/users/list',isLoggedIn, async (req, res) => {
     const usuarios = await pool.query('SELECT * FROM users');
     res.render('users/users',{users: usuarios});
 });
@@ -30,7 +30,7 @@ router.get('/users/list', async (req, res) => {
 router.get('/users/delete/:id', async (req, res) => {
     const  { id } = req.params;
     await pool.query('DELETE FROM users WHERE ID = ?', [id]);
-    req.flash('success', 'User Delete Successfully');
+    req.flash('success', 'Usuario Eliminado');
     res.redirect('/users/list');
 });
 
@@ -54,16 +54,10 @@ router.post('/users/edit/:id', async (req, res) => {
         password
     };
    await pool.query('UPDATE users set ? WHERE ID = ?', [newUser, id])
-   req.flash('success', 'Form Update Successfully')
+   req.flash('success', 'Usuario Actualizado')
    res.redirect('/users/list');  
 });
 ////////////////////////
-
-
-
-
-
-
 
 
 router.post('/users/signin', (req, res, next) => {
@@ -81,9 +75,9 @@ router.post('/users/signin', (req, res, next) => {
 
 
 
-router.get('/users/logout', (req, res) => {
+router.get('/users/logout',isNOTLoggedIn, (req, res) => {
     req.logOut();
-    res.redirect('/');
+    res.redirect('/users/signin');
 })
 
 //route for error page
