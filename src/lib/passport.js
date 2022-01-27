@@ -9,13 +9,14 @@ passport.use('local.signup', new localStrategy({
     passReqToCallback: true
 
 }, async (req, username, password, done) => {
-    const{ fullname, email } = req.body;
+    const{ fullname, email, superuser } = req.body;
   
     const newUser = {
         username,
         password,
         fullname,
-        email
+        email,
+        superuser
     }
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ?', [newUser]);
@@ -30,8 +31,7 @@ passport.use('local.signin', new localStrategy({
     passReqToCallback: true
 
 }, async (req, username, password, done) =>{
-
-   
+    
    
     const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
     
@@ -39,9 +39,9 @@ passport.use('local.signin', new localStrategy({
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
         if (validPassword){
-            done(null, user, req.flash('success','Bienvenido ' + user.username));
+            done(null, user, req.flash('success','Bienvenido ' + user.fullname));
         }else{
-            done (null, false, req.flash('message','Contrase&ntilde;a  incorrecta'));
+            done (null, false, req.flash('error','Contraseña incorrecta'));
         }
         
     }else{
@@ -53,13 +53,14 @@ passport.use('local.signin', new localStrategy({
 
 
 passport.serializeUser((user, done) => { 
-    done(null, user.id);
+    done(null, user.id);    
 
 });
 
 
 passport.deserializeUser(async (id, done) => {
-    const rows = await  pool.query('SELECT * FROM users WHERE id = ?', [id]);
+    const rows = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
     done(null, rows[0]);
+  
 
 });

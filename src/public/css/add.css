@@ -15,6 +15,13 @@ body {
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
 }
 
+.card-user {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
 .blue-text {
     color: #00BCD4
 }

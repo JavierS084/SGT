@@ -1,5 +1,6 @@
 
-<div class="col-md-12 justify-content-center mx-auto">
+
+<div class="justify-content-center mx-auto">
     <div class="card">
         <h5 class="text-center mb-4"> <span>Lista de Solicitudes</h5>      
         <table class="table table-borderles">
@@ -11,31 +12,34 @@
                         <th> <span class="ml-2">Solicitante</span> </th>
                     <th> <span class="ml-2">Asunto</span> </th>
                     <th> <span class="ml-2">Descripcion</span> </th>
-
+                    <th> <span class="ml-2">ID User</span> </th>
                     <th> <span class="ml-4">Action</span> </th>
                 </tr>
             </thead>
             
-            <tbody class="text-left " >
+            <tbody class="text-left mx-auto" >
                 {{#each form}}
                     <tr>
-                        <td class= "col-sm-3">
-                           <b>{{dependencia}}</b> <br><small>{{created_at }}</small> 
+                        <td class="col-sm-3">
+                          <b>{{dependencia}}</b> <br><small>{{created_at }}</small> 
                         </td>
                         <td>
-                            {{cargo}}
+                            {{cargo}} 
                         </td>
                         <td>
                             {{others}}
                         </td>
                         <td>
-                            {{title}}
+                            {{title}} 
                         </td>
                         
                         <td class="col-sm-3">
                             {{description}}
                         </td>
-                        
+
+                        <td class="text-center">
+                            {{user_id}}
+                        </td>
                         
                         <td class="col-sm-1">
                             <div class="justify-content-center" > 
@@ -68,7 +72,7 @@
                 {{else}}
                     <div class="col-md-4 mx-auto">
                         <div class="card card-body text-center bg-dark text-light">
-                            <p>Todavía no hay formularios guardados..</p>
+                            <p>There are not form saved yet.</p>
                             <a href="/form/add" class="text-success">Crear una nueva Solicitud</a>
                         </div>
                     </div>
@@ -78,4 +82,3 @@
     </div>
         
 </div>
-   

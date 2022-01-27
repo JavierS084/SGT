@@ -206,9 +206,6 @@
 
   }
   
-
- 
-
 .dropdown-item {
   display: block;
   width: 100%;
@@ -221,13 +218,16 @@
   background-color: transparent;
   border: 0;
 }
+
+
 .dropdown-menu.show {
 
   display: flex;
   align-content: space-between;
   justify-content: space-evenly;
   flex-direction: column;
-  flex-wrap: nowrap;height: 13rem;
+  flex-wrap: nowrap;
+  height: 13rem;
 }
 
 
@@ -236,7 +236,7 @@
     z-index: 1000;
     display: none;
     min-width: 10rem;
-    height: 10rem;
+    min-height: 17rem;
     margin-right: 2.25rem;
     margin-top: 1rem;
     padding: 0.1rem 0;
@@ -250,6 +250,42 @@
     border-radius: 0.25rem;
 }
 
+.dropdown-menu-ext {
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  height: 10rem;
+  margin-right: 2.25rem;
+  margin-top: 1rem;
+  padding: 0.1rem 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0.25rem;
+}
+.dropdown-menu-ext.show {
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  height: 10rem;
+  margin-right: 2.25rem;
+  margin-top: 1rem;
+  padding: 0.1rem 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0.25rem;
+}
 
 .dropdown, .dropend, .dropstart, .dropup {
   padding-top: 0.1rem;

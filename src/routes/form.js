@@ -1,79 +1,74 @@
 const express = require('express');
 const router = express.Router();
-const { authenticated: authenticated} = require('../lib/auth');
+const { isLoggedIn } = require('../lib/auth');
 const pool = require('../database');//hace referencia a la conexion base de datos 
 
 
 
-router.get('/add', (req, res) => {
+router.get('/add',isLoggedIn,(req, res) => {
     res.render('forms/add');
 });
 
 
-router.post('/add', async (req, res) => {
-    const { title, description } = req.body;
-    const errors = [];
-    if(!title) {
-        errors.push({text: 'Please Write a Title'});
-    }
+router.post('/add',isLoggedIn, async (req, res) => {
+    console.log(req.body);
+    const { title, description, dependencia, cargo, others} = req.body;
+    const newForm = {
+        title,
+        description,
+        dependencia,
+        cargo,
+        others,
+        user_id: req.user.id}; //para poder pasar el  dato del usuario logeado
 
-    if(!description) {
-        errors.push({text: 'Please Write a Description'});
-
-    }
-
-    if(errors.length > 0) {
-        res.render('forms/add', {
-            errors,
-            title,
-            description
-
-        });
-    } else {
-        const newForm = new Form({ title, description});
-        await newForm.save();
-        req.flash('success_msg', 'Note Added Successfully');
-        res.redirect('/list');
-    }
-   
-});
-//list
-/*
-router.get('/forms/list/solicitudes', authenticated, async (req, res) => {
-    //const forms = await Form.find({user: req.user.id}).sort({date: 'desc'}).lean();
-    res.render('forms/forms');
-   
-});
-*/
-
-router.get ('/list', (req, res) => {
-   
-    res.render('forms/forms');
-  });
-  
-
+    await pool.query('INSERT INTO forms set ?', [newForm]);
+    req.flash('success', 'Solicitud Agregada Correctamente');
+    res.redirect('/form/list');
     
-    
-/*
-//edit
-router.get('/forms/edit/:id',authenticated, async (req, res) => {
-    const form = await Form.findById(req.params.id).lean();
-    res.render('notes/edit-note', {form})
 });
+
+
+router.get('/list',isLoggedIn, async(req, res) => {
+    const forms = await pool.query('SELECT * FROM forms WHERE user_id = ?', [req.user.id]);
+    res.render('forms/forms',{form: forms});
+});
+
+router.get('/list_all', isLoggedIn, async(req, res) => {
+    const forms = await pool.query('SELECT * FROM forms ')
+    res.render('forms/forms-all', {form: forms});   
+})
+
+router.get('/delete/:id',isLoggedIn, async (req, res) => {
+    const  { id } = req.params;
+    await pool.query('DELETE FROM forms WHERE ID = ?', [id]);
+    req.flash('success', 'Solicitud Eliminada Correctamente');
+    res.redirect('/form/list');
+});
+
+
+router.get('/edit/:id',isLoggedIn, async (req, res) => {
+    const { id } = req.params;
+    const forms =  await pool.query('SELECT * FROM forms WHERE ID = ?', [id]);
+    console.log(forms);
+    res.render('forms/edit', {form: forms[0]})
+});
+
 //update
-router.put('/notes/edit-note/:id',authenticated, async (req, res) => {
-    const {title, description }= req.body;
-    await Form.findByIdAndUpdate(req.params.id, { title, description});
-    req.flash('success_msg', 'Note Updated Successfully');
-    res.redirect('/notes');
+router.post('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    const {title, description, dependencia, cargo, others} = req.body;
+    const newForm = {
+        title,
+        description,
+        dependencia,
+        cargo,
+        others
+    };
+   await pool.query('UPDATE forms set ? WHERE ID = ?', [newForm, id])
+    req.flash('success', 'Solicitud Actualizado Correcatmente')
+    res.redirect('/form/list');  
 });
 
-//delete
-router.delete('/notes/delete/:id',authenticated, async (req, res) => {
-  await Form.findByIdAndDelete(req.params.id);
-  req.flash('success_msg', 'Note Delete Successfully');
-   res.redirect('/notes');
-});
-*/
+
 
 module.exports = router; 

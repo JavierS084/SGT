@@ -40,21 +40,21 @@ app.use(session({
 }));
 
 
+app.use(flash());
 app.use(morgan('dev')); //muestra las peticiones que llegan por consola al server
 app.use(express.urlencoded({extended: false})); //para aceptar desde el formulario los datos que envien los usuarios y solo formato string
 app.use(express.json()); //para enviar y recibir archivos JSON
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 
 
 //Global variables
 app.use((req, res, next) => { //toma la informacion del usuario, reponde el servidor y continua con el codigo
-   app.locals.success = req.flash('success');
-   app.locals.message = req.flash('message');
-   app.locals.error = req.flash('error');
-   app.locals.user = req.user || null;
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
+    app.locals.error = req.flash('error');
+    app.locals.user = req.user || null; //te permite acceder desde cualquier parte a user
     next();
 });
 
