@@ -48,6 +48,13 @@ table{
 
 }
 
+.fondIndex {
+  position: relative;
+  left: 0;
+  width: 98.8vw;
+  height: 90vh;
+  
+}
 .las {
   position: relative;
   left: 1rem;

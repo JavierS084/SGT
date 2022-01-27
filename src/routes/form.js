@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
+const {isAuthenticated: isAuthenticated } = require('../lib/auth');
 const pool = require('../database');//hace referencia a la conexion base de datos 
 
 
@@ -13,7 +14,13 @@ router.get('/add',isLoggedIn,(req, res) => {
 router.post('/add',isLoggedIn, async (req, res) => {
     console.log(req.body);
     const { title, description, dependencia, cargo, others} = req.body;
-    const newForm = { title, description, dependencia, cargo, others};
+    const newForm = {
+        title,
+        description,
+        dependencia,
+        cargo,
+        others,
+        user_id: req.user.id}; //para poder pasar el  dato del usuario logeado
 
     await pool.query('INSERT INTO forms set ?', [newForm]);
     req.flash('success', 'Solicitud Agregado Correctamente');
@@ -23,10 +30,14 @@ router.post('/add',isLoggedIn, async (req, res) => {
 
 
 router.get('/list',isLoggedIn, async(req, res) => {
-    const forms = await pool.query('SELECT * FROM forms');
+    const forms = await pool.query('SELECT * FROM forms WHERE user_id = ?', [req.user.id]);
     res.render('forms/forms',{form: forms});
 });
 
+router.get('/list_all', isLoggedIn, async(req, res) => {
+    const forms = await pool.query('SELECT * FROM forms ')
+    res.render('forms/forms-all', {form: forms});   
+})
 
 router.get('/delete/:id',isLoggedIn, async (req, res) => {
     const  { id } = req.params;

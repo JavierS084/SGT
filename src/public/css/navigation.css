@@ -236,7 +236,7 @@
     z-index: 1000;
     display: none;
     min-width: 10rem;
-    height: 10rem;
+    min-height: 17rem;
     margin-right: 2.25rem;
     margin-top: 1rem;
     padding: 0.1rem 0;

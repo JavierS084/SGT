@@ -5,7 +5,7 @@ const pool = require('../database');
 const {isLoggedIn, isNOTLoggedIn} = require('../lib/auth');
 
 
-router.get('/users/signup', (req, res) => {
+router.get('/users/signup',isLoggedIn , (req, res) => {
     res.render('users/signup');
 });
 
@@ -75,7 +75,7 @@ router.post('/users/signin', (req, res, next) => {
 
 
 
-router.get('/users/logout',isNOTLoggedIn, (req, res) => {
+router.get('/users/logout',isLoggedIn, (req, res) => {
     req.logOut();
     res.redirect('/users/signin');
 })
