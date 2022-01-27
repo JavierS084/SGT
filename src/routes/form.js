@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
-const {isAuthenticated: isAuthenticated } = require('../lib/auth');
 const pool = require('../database');//hace referencia a la conexion base de datos 
 
 
@@ -23,7 +22,7 @@ router.post('/add',isLoggedIn, async (req, res) => {
         user_id: req.user.id}; //para poder pasar el  dato del usuario logeado
 
     await pool.query('INSERT INTO forms set ?', [newForm]);
-    req.flash('success', 'Solicitud Agregado Correctamente');
+    req.flash('success', 'Solicitud Agregada Correctamente');
     res.redirect('/form/list');
     
 });
@@ -42,7 +41,7 @@ router.get('/list_all', isLoggedIn, async(req, res) => {
 router.get('/delete/:id',isLoggedIn, async (req, res) => {
     const  { id } = req.params;
     await pool.query('DELETE FROM forms WHERE ID = ?', [id]);
-    req.flash('success', 'Solicitud Eliminado Correctamente');
+    req.flash('success', 'Solicitud Eliminada Correctamente');
     res.redirect('/form/list');
 });
 

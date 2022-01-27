@@ -1,85 +1,81 @@
 
-<div class="row">
-    <div class="container-fluid mx-auto">
-        <div class="col-md-12 justify-content-center">
-            <div class="card">
-                <h5 class="text-center mb-4"> <span>Lista de Solicitudes</h5>      
-                <table class="table table-borderles">
-                    
-                    <thead class="text-center col-md-10">
-                        <tr class="border-bottom">
-                            <th> <span class="ml-2">Dependencia</span> </th>
-                            <th> <span class="ml-2">Cargo</span> </th>
-                             <th> <span class="ml-2">Solicitante</span> </th>
-                            <th> <span class="ml-2">Asunto</span> </th>
-                            <th> <span class="ml-2">Descripcion</span> </th>
+<div class="col-md-12 justify-content-center mx-auto">
+    <div class="card">
+        <h5 class="text-center mb-4"> <span>Lista de Solicitudes</h5>      
+        <table class="table table-borderles">
+            
+            <thead class="text-center">
+                <tr class="border-bottom">
+                    <th> <span class="mx-2">Dependencia</span> </th>
+                    <th> <span class="ml-2">Cargo</span> </th>
+                        <th> <span class="ml-2">Solicitante</span> </th>
+                    <th> <span class="ml-2">Asunto</span> </th>
+                    <th> <span class="ml-2">Descripcion</span> </th>
 
-                            <th> <span class="ml-4">Action</span> </th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody class="text-left col-md-10" >
-                        {{#each form}}
-                            <tr>
-                                <td >
-                                    <span ><b>{{dependencia}}</b></span> <br><small>{{created_at }}</small> 
-                                </td>
-                                <td>
-                                        <span>{{cargo}}</span> 
-                                </td>
-                                <td>
-                                    <span>{{others}}</span>
-                                </td>
-                                <td>
-                                    <span >{{title}}</span> 
-                                </td>
-                               
-                                <td class="col-sm-3">
-                                    {{description}}
-                                </td>
-                                
-                                
-                                <td class="col-sm-1">
-                                    <div class="justify-content-center" > 
-                                        <a  href="/form/edit/{{id}}" class="las la-edit text-success"></a> 
-                                        <a class="las la-trash text-danger" data-toggle="modal" data-target="#delete"></a>
-                                        <a class="las la-download text-secondary las-5x" href="forms.hbs" download></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!--Modal delete -->
-                            <div id="delete" class="modal fade">
-                                <div class="modal-dialog modal-confirm">
-                                    <div class="modal-content">
-                                        <div class="modal-header flex-column">						
-                                            <h4 class="modal-title w-100">Estas Seguro?</h4>	
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Realmente deseas eliminar? Este proceso no se puede deshacer.</p>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-
-                                            <a href="/form/delete/{{id}}" class="btn btn-danger">Eliminar</a>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <th> <span class="ml-4">Action</span> </th>
+                </tr>
+            </thead>
+            
+            <tbody class="text-left " >
+                {{#each form}}
+                    <tr>
+                        <td class= "col-sm-3">
+                           <b>{{dependencia}}</b> <br><small>{{created_at }}</small> 
+                        </td>
+                        <td>
+                            {{cargo}}
+                        </td>
+                        <td>
+                            {{others}}
+                        </td>
+                        <td>
+                            {{title}}
+                        </td>
                         
-                        {{else}}
-                            <div class="col-md-4 mx-auto">
-                                <div class="card card-body text-center bg-dark text-light">
-                                    <p>Todavía no hay formularios guardados..</p>
-                                    <a href="/form/add" class="text-success">Crear una nueva Solicitud</a>
+                        <td class="col-sm-3">
+                            {{description}}
+                        </td>
+                        
+                        
+                        <td class="col-sm-1">
+                            <div class="justify-content-center" > 
+                                <a  href="/form/edit/{{id}}" class="las la-edit text-success"></a> 
+                                <a class="las la-trash text-danger" data-toggle="modal" data-target="#delete"></a>
+                                <a class="las la-download text-secondary las-5x" href="forms.hbs" download></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Modal delete -->
+                    <div id="delete" class="modal fade">
+                        <div class="modal-dialog modal-confirm">
+                            <div class="modal-content">
+                                <div class="modal-header flex-column">						
+                                    <h4 class="modal-title w-100">Estas Seguro?</h4>	
+                                </div>
+                                <div class="modal-body">
+                                    <p>Realmente deseas eliminar? Este proceso no se puede deshacer.</p>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+                                    <a href="/form/delete/{{id}}" class="btn btn-danger">Eliminar</a>
+                                    
                                 </div>
                             </div>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
+                        </div>
+                    </div>
                 
-        </div>
+                {{else}}
+                    <div class="col-md-4 mx-auto">
+                        <div class="card card-body text-center bg-dark text-light">
+                            <p>Todavía no hay formularios guardados..</p>
+                            <a href="/form/add" class="text-success">Crear una nueva Solicitud</a>
+                        </div>
+                    </div>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
-
+        
 </div>
+   
