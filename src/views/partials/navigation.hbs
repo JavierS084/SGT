@@ -17,10 +17,11 @@
                           {{#if user.superuser}}
                             <a class="dropdown-item" href="/form/list_all">Lista de Solicitudes</a>
                           {{/if}}
-                          <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/users/logout">Salir</a>
+                        
+                      
                       </div>
               </li>
+             
   
   
           {{else}}
@@ -41,6 +42,20 @@
             </li>
             
         {{/if}}
+        {{#if user}}
+         <li>
+            <a class="dropdown-user" data-toggle="dropdown" >
+              <img class="img-user" src="/img/user.png">
+            </a>
+            <div class="dropdown-menu"  >
+              <a class="p-2">{{user.fullname}}</a>
+            
+              <a class="dropdown-item" href="/users/logout">Salir</a>
+            </div>
+          </li>
+
+        {{/if}}
+
       </ul>
     </nav>
 

@@ -156,10 +156,23 @@
   }
    
 .dropw{
-    margin-top: .25rem;
-    padding-top: .1rem;
+  margin-top: .25rem;
+  padding-top: .1rem;
     
-  }
+}
+
+.dropdown-toggle{
+  background-color: transparent;
+  
+  transition: .3s;
+  padding-top: .3rem;
+  padding-bottom: .45rem; 
+  padding-left: .9rem;
+  padding-right: 0; 
+
+  border-radius: .25rem;
+  
+}
 
 .dropdown-toggle:hover{
   background-color: #0082e6;
@@ -180,31 +193,36 @@
   -o-border-radius: .25rem;
     
 }
-  .dropdown-toggle{
-    background-color: transparent;
-   
-    transition: .3s;
-    padding-top: .3rem;
-    padding-bottom: .45rem; 
-    padding-left: .9rem;
-    padding-right: 0; 
-  
-    border-radius: .25rem;
-    
-  }
-  .dropdown-toggle::after{
-    position: relative;
-    color: transparent;
-    display: inline-block;
-    margin-right: 0.255em;
-    vertical-align: 0.255em;
-    right: 3.5rem;
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
+.dropdown-toggle::after{
+  position: relative;
+  color: transparent;
+  display: inline-block;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  right: 3.5rem;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
 
-  }
+}
+.dropdown-menu {
+  position: relative;
+  z-index: 1000;
+  display: none;
+  min-width: 0 !important;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0.25rem;
+}
+
   
 .dropdown-item {
   display: block;
@@ -218,7 +236,11 @@
   background-color: transparent;
   border: 0;
 }
-
+.dropdown-user{
+  background-color: transparent;
+  padding: 0;
+  border-radius: .25rem;
+}
 
 .dropdown-menu.show {
 
@@ -227,27 +249,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 13rem;
-}
-
-
-.dropdown-menu {
-    position: relative;
-    z-index: 1000;
-    display: none;
-    min-width: 10rem;
-    min-height: 17rem;
-    margin-right: 2.25rem;
-    margin-top: 1rem;
-    padding: 0.1rem 0;
-    font-size: 1rem;
-    color: #212529;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: 0.25rem;
+  height: auto;
 }
 
 .dropdown-menu-ext {
