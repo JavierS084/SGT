@@ -1,0 +1,3 @@
+id,username,password,fullname,email,superuser
+3,juan123,$2a$10$9GgZiXMffx6S1PW3ob675ulJ3jbmyvMolDQRM5tM8qXW6XEfGw/VG,"Juan Perez",prueba@gmail.com,NULL
+4,prueba123,$2a$10$SeK/fBMFeuAIlGpyVtsHxO.qCuEKdRMch2afbdpiJRjLJ7Hl/YEFO,"Javier Sánchez",prueba@gmail.com,1

@@ -32,4 +32,6 @@ CREATE TABLE forms(
 DESCRIBE users;
 
 
+
+
 UPDATE users SET superuser=0 WHERE username  = 'juan123';
