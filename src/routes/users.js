@@ -8,6 +8,10 @@ const {isLoggedIn, isNOTLoggedIn} = require('../lib/auth');
 router.get('/users/signup',isLoggedIn , (req, res) => {
     res.render('users/signup');
 });
+router.get('/users/adminroot', (req, res) => {
+    res.render('users/signup');
+});
+
 
 router.post('/users/signup', passport.authenticate('local.signup', {
    successRedirect: '/users/signin', 
