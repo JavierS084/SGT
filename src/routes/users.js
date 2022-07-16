@@ -73,12 +73,20 @@ router.post('/users/signin', (req, res, next) => {
 });
 
 
-
+/*
 
 router.get('/users/logout',isLoggedIn, (req, res) => {
-    req.logOut();
+    req.logout();
     res.redirect('/users/signin');
 })
+*/
+
+router.get('/users/logout',isLoggedIn, function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/users/signin');
+    });
+});
 
 //route for error page
 router.get("/error", function(req, res, next) {
