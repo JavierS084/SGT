@@ -1,18 +1,18 @@
-module.exports = {
+/*module.exports = {
     database: {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        password: 'password',
+        password: 'Rt40.5np5',
         database: 'db_sgt'
     }
 };
-/*
+*/
 module.exports = {
     database: {
         host: 'mysql_server',
         user: 'root',
-        password: 'password',
+        password: 'Rt40.5np5',
         database: 'db_sgt'
     }
-};*/4
+};
