@@ -5,7 +5,7 @@ const pool = require('../database');
 const {isLoggedIn, isNOTLoggedIn} = require('../lib/auth');
 
 
-router.get('/users/signup',  (req, res) => {
+router.get('/users/signup', isLoggedIn, (req, res) => {
     res.render('users/signup');
 });
 
@@ -18,7 +18,6 @@ router.post('/users/signup', passport.authenticate('local.signup', {
 router.get('/users/signin', isNOTLoggedIn, (req, res) => {
     res.render('users/signin');
 });
-
 
 ////////////////////////////////////lista de Usuarios
 router.get('/users/list',isLoggedIn, async (req, res) => {
